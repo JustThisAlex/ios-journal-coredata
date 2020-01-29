@@ -12,11 +12,12 @@ import CoreData
 extension Entry {
     
     @discardableResult
-    convenience init(title: String, bodyText: String, timestamp: Date = Date(), identifier: String = String(Int.random(in: 1000...1000000000)), context: NSManagedObjectContext) {
+    convenience init(title: String, bodyText: String, timestamp: Date = Date(), identifier: String = String(Int.random(in: 1000...1000000000)), mood: String, context: NSManagedObjectContext) {
         self.init(context: context)
         self.title = title
         self.bodyText = bodyText
         self.timestamp = timestamp
         self.identifier = identifier
+        self.mood = mood
     }
 }

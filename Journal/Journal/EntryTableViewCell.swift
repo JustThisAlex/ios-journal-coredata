@@ -16,23 +16,20 @@ class EntryTableViewCell: UITableViewCell {
     @IBOutlet weak var body: UILabel!
     @IBOutlet weak var time: UILabel!
     
-//    override func awakeFromNib() {
-//        super.awakeFromNib()
-//        // Initialization code
-//    }
-    
     func updateViews() {
         guard let entry = entry else { return }
         title.text = entry.title
         body.text = entry.bodyText
-        guard let timestamp = entry.timestamp else { return }
-        time.text = String(describing: timestamp)
+        time.text = formatDate(entry.timestamp)
     }
 
-//    override func setSelected(_ selected: Bool, animated: Bool) {
-//        super.setSelected(selected, animated: animated)
-//
-//        // Configure the view for the selected state
-//    }
+    func formatDate(_ date: Date?) -> String {
+        guard let date = date else { return "" }
+        let dateFormatter = DateFormatter()
+        dateFormatter.timeStyle = .short
+        dateFormatter.dateStyle = .short
+        dateFormatter.doesRelativeDateFormatting = true
+        return dateFormatter.string(from: date)
+    }
 
 }

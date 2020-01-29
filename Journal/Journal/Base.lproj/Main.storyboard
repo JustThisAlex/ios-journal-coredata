@@ -17,10 +17,10 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="qAP-cZ-Wcj" customClass="EntryTableViewCell" customModule="Journal" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="414" height="106.5"/>
+                                <rect key="frame" x="0.0" y="28" width="414" height="107"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="qAP-cZ-Wcj" id="sk8-ed-oqf">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="106.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="107"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="252" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h7a-GQ-0JD">
@@ -39,7 +39,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1hd-GR-hff">
-                                            <rect key="frame" x="30" y="64.5" width="354" height="21"/>
+                                            <rect key="frame" x="30" y="64.5" width="354" height="21.5"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -124,39 +124,55 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter a title:" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xQY-0U-BXz">
-                                <rect key="frame" x="20" y="98" width="374" height="34"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="   Enter a title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xQY-0U-BXz">
+                                <rect key="frame" x="20" y="139" width="374" height="35"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="a1N-15-NtD"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="TtE-mj-Lpg">
-                                <rect key="frame" x="20" y="142" width="374" height="700"/>
+                                <rect key="frame" x="20" y="184" width="374" height="658"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="1" translatesAutoresizingMaskIntoConstraints="NO" id="bmQ-7b-vEI">
+                                <rect key="frame" x="20" y="98" width="374" height="32"/>
+                                <segments>
+                                    <segment title="😄"/>
+                                    <segment title="😐"/>
+                                    <segment title="😭"/>
+                                </segments>
+                            </segmentedControl>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="bmQ-7b-vEI" firstAttribute="top" secondItem="O2t-eW-yh1" secondAttribute="top" constant="10" id="4Nq-wx-242"/>
                             <constraint firstItem="xQY-0U-BXz" firstAttribute="leading" secondItem="O2t-eW-yh1" secondAttribute="leading" constant="20" id="8ux-Rw-4Fx"/>
                             <constraint firstItem="O2t-eW-yh1" firstAttribute="bottom" secondItem="TtE-mj-Lpg" secondAttribute="bottom" constant="20" id="ADE-0X-3aH"/>
-                            <constraint firstItem="xQY-0U-BXz" firstAttribute="top" secondItem="O2t-eW-yh1" secondAttribute="top" constant="10" id="EJW-z2-gHP"/>
+                            <constraint firstItem="bmQ-7b-vEI" firstAttribute="leading" secondItem="O2t-eW-yh1" secondAttribute="leading" constant="20" id="I0g-d4-7ru"/>
                             <constraint firstItem="TtE-mj-Lpg" firstAttribute="leading" secondItem="O2t-eW-yh1" secondAttribute="leading" constant="20" id="JZa-Xd-hrP"/>
+                            <constraint firstItem="xQY-0U-BXz" firstAttribute="top" secondItem="bmQ-7b-vEI" secondAttribute="bottom" constant="10" id="PrF-vP-wHv"/>
                             <constraint firstItem="O2t-eW-yh1" firstAttribute="trailing" secondItem="xQY-0U-BXz" secondAttribute="trailing" constant="20" id="UrD-c4-xF7"/>
                             <constraint firstItem="TtE-mj-Lpg" firstAttribute="top" secondItem="xQY-0U-BXz" secondAttribute="bottom" constant="10" id="eXQ-Wd-CkA"/>
+                            <constraint firstItem="O2t-eW-yh1" firstAttribute="trailing" secondItem="bmQ-7b-vEI" secondAttribute="trailing" constant="20" id="qp6-Gk-qrv"/>
                             <constraint firstItem="O2t-eW-yh1" firstAttribute="trailing" secondItem="TtE-mj-Lpg" secondAttribute="trailing" constant="20" id="r7h-s7-Tww"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="O2t-eW-yh1"/>
                     </view>
                     <navigationItem key="navigationItem" id="oVc-hG-aoN">
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="osd-Hw-kQ0">
+                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="save" id="osd-Hw-kQ0">
                             <connections>
                                 <action selector="saveAction:" destination="d84-Ue-KPX" id="nQY-Uk-F8Z"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="moodSegment" destination="bmQ-7b-vEI" id="ilz-6o-O3r"/>
                         <outlet property="textField" destination="xQY-0U-BXz" id="wD3-aH-5rO"/>
                         <outlet property="textView" destination="TtE-mj-Lpg" id="1tB-vc-7mu"/>
                     </connections>
@@ -167,6 +183,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Y5M-Gu-9Yd"/>
+        <segue reference="EMs-Kh-fIY"/>
     </inferredMetricsTieBreakers>
 </document>

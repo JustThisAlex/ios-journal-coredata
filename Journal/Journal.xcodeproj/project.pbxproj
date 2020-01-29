@@ -36,6 +36,7 @@
 		FA17283123DF60C900BD2F21 /* EntryController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryController.swift; sourceTree = "<group>"; };
 		FA17283423DF617600BD2F21 /* Entry.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Entry.xcdatamodel; sourceTree = "<group>"; };
 		FA17283623DF61F600BD2F21 /* Entry+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Entry+Convenience.swift"; sourceTree = "<group>"; };
+		FA6D9CB623E1CE5F00B66EF2 /* Entry 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Entry 2.xcdatamodel"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -375,9 +376,10 @@
 		FA17283323DF617600BD2F21 /* Entry.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				FA6D9CB623E1CE5F00B66EF2 /* Entry 2.xcdatamodel */,
 				FA17283423DF617600BD2F21 /* Entry.xcdatamodel */,
 			);
-			currentVersion = FA17283423DF617600BD2F21 /* Entry.xcdatamodel */;
+			currentVersion = FA6D9CB623E1CE5F00B66EF2 /* Entry 2.xcdatamodel */;
 			path = Entry.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
