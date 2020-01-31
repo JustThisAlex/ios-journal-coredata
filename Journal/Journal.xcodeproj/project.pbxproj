@@ -19,6 +19,7 @@
 		FA17283223DF60C900BD2F21 /* EntryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA17283123DF60C900BD2F21 /* EntryController.swift */; };
 		FA17283523DF617600BD2F21 /* Entry.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FA17283323DF617600BD2F21 /* Entry.xcdatamodeld */; };
 		FA17283723DF61F600BD2F21 /* Entry+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA17283623DF61F600BD2F21 /* Entry+Convenience.swift */; };
+		FA27F6AE23E3BCBE007CB117 /* EntryRepresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA27F6AD23E3BCBE007CB117 /* EntryRepresentation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		FA17283123DF60C900BD2F21 /* EntryController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryController.swift; sourceTree = "<group>"; };
 		FA17283423DF617600BD2F21 /* Entry.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Entry.xcdatamodel; sourceTree = "<group>"; };
 		FA17283623DF61F600BD2F21 /* Entry+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Entry+Convenience.swift"; sourceTree = "<group>"; };
+		FA27F6AD23E3BCBE007CB117 /* EntryRepresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryRepresentation.swift; sourceTree = "<group>"; };
 		FA6D9CB623E1CE5F00B66EF2 /* Entry 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Entry 2.xcdatamodel"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -69,14 +71,10 @@
 		FA17281323DF511300BD2F21 /* Journal */ = {
 			isa = PBXGroup;
 			children = (
-				FA17281A23DF511300BD2F21 /* Main.storyboard */,
-				FA17282D23DF5CB700BD2F21 /* EntryDetailViewController.swift */,
-				FA17282F23DF5D6A00BD2F21 /* CoreDataStack.swift */,
-				FA17283123DF60C900BD2F21 /* EntryController.swift */,
-				FA17283323DF617600BD2F21 /* Entry.xcdatamodeld */,
-				FA17282B23DF573000BD2F21 /* EntryTableViewCell.swift */,
-				FA17282923DF568D00BD2F21 /* EntriesTableViewController.swift */,
-				FA17283623DF61F600BD2F21 /* Entry+Convenience.swift */,
+				FA473AB523E34D9A00C2AA92 /* Views */,
+				FA473AB423E34D8D00C2AA92 /* View Controllers */,
+				FA473AB323E34D7900C2AA92 /* Model Controllers */,
+				FA473AB223E34D7200C2AA92 /* Models */,
 				FA17282823DF54A500BD2F21 /* Resources */,
 			);
 			path = Journal;
@@ -92,6 +90,43 @@
 				FA17282223DF511500BD2F21 /* Info.plist */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		FA473AB223E34D7200C2AA92 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				FA17282F23DF5D6A00BD2F21 /* CoreDataStack.swift */,
+				FA17283623DF61F600BD2F21 /* Entry+Convenience.swift */,
+				FA27F6AD23E3BCBE007CB117 /* EntryRepresentation.swift */,
+				FA17283323DF617600BD2F21 /* Entry.xcdatamodeld */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		FA473AB323E34D7900C2AA92 /* Model Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				FA17283123DF60C900BD2F21 /* EntryController.swift */,
+			);
+			path = "Model Controllers";
+			sourceTree = "<group>";
+		};
+		FA473AB423E34D8D00C2AA92 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				FA17282D23DF5CB700BD2F21 /* EntryDetailViewController.swift */,
+				FA17282923DF568D00BD2F21 /* EntriesTableViewController.swift */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		FA473AB523E34D9A00C2AA92 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				FA17281A23DF511300BD2F21 /* Main.storyboard */,
+				FA17282B23DF573000BD2F21 /* EntryTableViewCell.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -166,6 +201,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FA17282C23DF573000BD2F21 /* EntryTableViewCell.swift in Sources */,
+				FA27F6AE23E3BCBE007CB117 /* EntryRepresentation.swift in Sources */,
 				FA17283723DF61F600BD2F21 /* Entry+Convenience.swift in Sources */,
 				FA17282A23DF568D00BD2F21 /* EntriesTableViewController.swift in Sources */,
 				FA17283223DF60C900BD2F21 /* EntryController.swift in Sources */,

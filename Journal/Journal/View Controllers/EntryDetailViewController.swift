@@ -11,6 +11,7 @@ import UIKit
 class EntryDetailViewController: UIViewController {
     
     var entry: Entry? { didSet { updateViews() }}
+    var entryController: EntryController?
     
     @IBOutlet weak var textField: UITextField!
     @IBOutlet weak var textView: UITextView!
@@ -23,9 +24,9 @@ class EntryDetailViewController: UIViewController {
     }
     
     @IBAction func saveAction(_ sender: Any) {
-        guard let title = textField.text, let bodyText = textView.text, let mood = moodSegment.titleForSegment(at: moodSegment.selectedSegmentIndex) else { return }
-        if let entry = entry { EntriesTableViewController.entryController.update(entry, title: title, bodyText: bodyText, mood: mood); dismiss(animated: true, completion: nil)}
-        else { EntriesTableViewController.entryController.create(title: title, bodyText: bodyText, mood: mood); navigationController?.dismiss(animated: true, completion: nil)}
+        guard let title = textField.text, let bodyText = textView.text, let mood = moodSegment.titleForSegment(at: moodSegment.selectedSegmentIndex), let entryController = entryController else { return }
+        if let entry = entry { entryController.update(entry, title: title, bodyText: bodyText, mood: mood); dismiss(animated: true, completion: nil)}
+        else { entryController.create(entry: Entry(title: title, bodyText: bodyText, mood: mood)); dismissme()}
     }
     
     private func formatViews() {

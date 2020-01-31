@@ -11,7 +11,6 @@ import CoreData
 
 class EntriesTableViewController: UITableViewController {
     
-    static let entryController = EntryController()
     lazy var fetchedResultsController: NSFetchedResultsController<Entry> = {
         let fetchRequest: NSFetchRequest<Entry> = Entry.fetchRequest()
         fetchRequest.sortDescriptors = [NSSortDescriptor(key: "mood", ascending: true), NSSortDescriptor(key: "timestamp", ascending: false)]
@@ -21,17 +20,21 @@ class EntriesTableViewController: UITableViewController {
         try! frc.performFetch()
         return frc
     }()
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
+    
+    private let entryController = EntryController()
     
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         tableView.reloadData()
+    }
+    
+    @IBAction func refresh(_ sender: Any) {
+        entryController.read { _ in
+            self.refreshControl?.endRefreshing()
+        }
     }
 
     // MARK: - Table view data source
-
     override func numberOfSections(in tableView: UITableView) -> Int {
         return fetchedResultsController.sections?.count ?? 1
     }
@@ -53,19 +56,34 @@ class EntriesTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            CoreDataStack.shared.mainContext.delete(fetchedResultsController.object(at: indexPath))
-            EntryController.saveToPersistentStore()
+           let entry = fetchedResultsController.object(at: indexPath)
+            entryController.delete(entry) { error in
+                if let error = error {
+                    print("Error deleting entry from server: \(error)")
+                    return
+                }
+                
+                CoreDataStack.shared.mainContext.delete(entry)
+                do {
+                    try CoreDataStack.shared.mainContext.save()
+                } catch {
+                    CoreDataStack.shared.mainContext.reset()
+                    NSLog("Error saving managed object context: \(error)")
+                }
+            }
         }
     }
     
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "ShowSegue", let detailVC = segue.destination as? EntryDetailViewController, let indexPath = tableView.indexPathForSelectedRow {
-            detailVC.entry = fetchedResultsController.object(at: indexPath)
+        if segue.identifier == "ShowSegue", let destination = segue.destination as? EntryDetailViewController, let indexPath = tableView.indexPathForSelectedRow {
+            destination.entry = fetchedResultsController.object(at: indexPath)
+            destination.entryController = self.entryController
+        } else if segue.identifier == "AddSegue", let navigation = segue.destination as? UINavigationController,
+        let destination = navigation.viewControllers.first as? EntryDetailViewController {
+            destination.entryController = self.entryController
         }
     }
-    
-
 }
 
 extension EntriesTableViewController: NSFetchedResultsControllerDelegate {
